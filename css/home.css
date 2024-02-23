@@ -1,15 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+body {
+    font-family: "Mulish", sans-serif;
+    background-color: #801b48;
+}
+/*header*/
+header {
+    background-color: black;
+}
+
+.box-header {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
 .logo {
     width: 200px;
-    top: 20px;
+    padding: 11px;
 }
 
 nav {
-    background-color: black;
     width: 100%;
+    height: 65px;
+}
+
+nav ul {
+    position: absolute;
+    top: 25px;
+    right: 20px;
 }
 
 nav li {
-    color: #f599b1;
     display: inline;
     margin: 0 0 0 20px;
     text-transform: uppercase;
@@ -17,4 +38,12 @@ nav li {
 
 nav a {
     text-decoration: none;
+    color: #f599b1;
+
 }
+
+nav a:hover {
+    color: #fef2f5;
+}
+
+/*main*/
