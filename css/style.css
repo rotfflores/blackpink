@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/csss?famly=Neuton|Owswald");
 
-/* Rotf Industries */
-
 body {
     height: 100vh;
     background-color: #090d00;
@@ -45,3 +43,5 @@ p span {
         background-position: 100% 50%;
     }
 }
+
+/*mobil*/
