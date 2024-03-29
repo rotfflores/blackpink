@@ -16,6 +16,55 @@ body {
     background: #000000;
 }
 
+/*nav*/
+.header {
+    background-color: #000;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    top: 2px;
+}
+
+.box-header {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 200px;
+    padding: 11px;
+}
+
+nav {
+    width: 100%;
+    height: 65px;
+}
+
+nav ul {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+
+nav li {
+    display: inline;
+    margin: 0 0 0 20px;
+    text-transform: uppercase;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f599b1;
+    font-family: "Mulish", sans-serif;
+}
+
+nav a:hover {
+    color: #fef2f5;
+}
+
+/*main*/
+
 .container {
     position: relative;
     display: grid;
@@ -28,8 +77,7 @@ body {
 }
 
 
-.container .box 
-{
+.container .box {
     position: relative;
     background: var(--img);
     background-position: center;
@@ -39,7 +87,6 @@ body {
     justify-content: center;
     align-items: center;
     filter: grayscale(0) brightness(1);
-
 }
 
 .container:hover .box{
@@ -105,53 +152,32 @@ body {
     transition-delay: 0.25s;
 }
 
-/*nav*/
-header {
-    background-color: #000;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    top: 2px;
+/*mobile*/
+@media (max-width: 768px){
+    .header, .box-header {
+        width: 100%;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 100px;
+        display: flex;
+        align-content: center;
+    }
+
+    .container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 400px;
+        height: 250px;
+    }
+
+
+    .container .box {
+        height: 200px;
+        width: auto;
+    }
 }
-
-.box-header {
-    position: relative;
-    width: 1000px;
-    margin: 0 auto;
-}
-
-.logo {
-    width: 200px;
-    padding: 11px;
-}
-
-nav {
-    width: 100%;
-    height: 65px;
-}
-
-nav ul {
-    position: absolute;
-    top: 25px;
-    right: 20px;
-}
-
-nav li {
-    display: inline;
-    margin: 0 0 0 20px;
-    text-transform: uppercase;
-}
-
-nav a {
-    text-decoration: none;
-    color: #f599b1;
-    font-family: "Mulish", sans-serif;
-
-
-}
-
-nav a:hover {
-    color: #fef2f5;
-}
-
-/*main*/
