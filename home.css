@@ -174,17 +174,22 @@ nav a:hover {
 
     /*main*/
 
+
+    .main-desktop {
+        width: 100%;
+        height: auto;
+        margin: 10px auto;
+    }
+
     .container {
-        width: 350px;
+        width: 100%;
+        position: absolute;
+        top: 0px;
      }
     
     
-    .container .box {
-        background-position: center;
-        background-size: cover;
-        justify-content: center;
-        align-items: start;
+    /*.container .box {
         top: -50px;
-    }
+    }*/
 
 }
