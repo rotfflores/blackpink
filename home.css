@@ -152,9 +152,6 @@ nav a:hover {
     transition-delay: 0.25s;
 }
 
-.main-mobile {
-    display: none;
-}
 
 /*mobile*/
 @media (max-width: 768px){
@@ -175,30 +172,19 @@ nav a:hover {
         align-content: center;
     }
 
+    /*main*/
+
     .container {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        width: 400px;
-        height: auto;
-    }
-
-
+        width: 350px;
+     }
+    
+    
     .container .box {
-        height: 200px;
-        width: auto;
-    }
-
-    /*mobile*/
-    .main-desktop {
-        display: none;
-    }
-
-    .main-mobile {
-        display: block;
-    }
-
-    .img-mobile {
-        width: 100%;
-        height: 200px;
+        background-position: center;
+        background-size: cover;
+        justify-content: center;
+        align-items: start;
+        top: 20px;
     }
 
 }
