@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body{
+    background-color: #e7edff;
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*nav*/
+nav {
+    background-color: #060323;
+    height: 65px;
+    width: 100%;
+}
+
+.box-header {
+    display: flex;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-logo {
+    width: 150px;
+}
+
+.nav-li {
+    display: inline-block;
+}
+
+.nav-li a {
+    color: #f599b1;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav-li a:hover {
+    color: #fef2f5;
+}
+
+/*mobile*/
+@media screen and (max-width: 768px) {
+    .box-header {
+        width: 95%;
+    }
+
+    .img-logo {
+        width: 150px;
+    }
+
+    .nav-li a {
+        padding: 10px 10px;
+    }
+}

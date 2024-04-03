@@ -9,27 +9,24 @@
 <body>
     <nav class="header">
         <div class = "box-header">
-            <nav>
-                <h1><img class="logo"src="img/logo.png"></h1>
-                <ul>
-                    <li><a href=home.html>Home</a></li>
-                    <li><a href="blackpink.html">BlackPink</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
+            <img class="img-logo" src="img/logo.png">
+            <ul class="nav-ul" >
+                <li class="nav-li" ><a href=home.html>Home</a></li>
+                <li class="nav-li"><a href="blackpink.html">BlackPink</a></li>
+                <li class="nav-li"><a href="about.html">About</a></li>
+            </ul>
         </div>
     </nav>
 
     <main class="main-desktop">
         <div class="container">
-            <div class="box one" style="--img:url(img/rose.jpg);" data-text="Rose"></div>
+            <div class="box one" id="rose" style="--img:url(img/rose.jpg);" data-text="Rose"></div>
             <div class="box two" style="--img:url(img/Jenie.jpg);" data-text="Jennie"></div>
             <div class="box three" style="--img:url(img/lisa.jpg);" data-text="Lisa"></div>
             <div class="box four" style="--img:url(img/Jisoo.jpg);" data-text="Jisoo"></div>
         </div>
-
-
     </main>
-        
+
+    <script src="js/home.js"></script>
 </body>
 </html>
