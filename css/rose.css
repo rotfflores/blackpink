@@ -22,7 +22,7 @@ nav {
 .box-header {
     display: flex;
     height: 100%;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
@@ -133,7 +133,9 @@ section {
 /*mobile*/
 @media screen and (max-width: 768px) {
     .box-header {
-        width: 95%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .img-logo {
@@ -143,6 +145,13 @@ section {
     .nav-li a {
         padding: 10px 10px;
     }
+
+    /*text-container*/
+    video {
+        width: auto;
+    }
+
+
 }
 
 /*desktop*/
