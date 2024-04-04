@@ -148,18 +148,23 @@ nav {
 
 /*mobile*/
 @media (max-width: 768px){
+
+    .box-header {
+        flex-wrap: wrap;
+    }
     
     .header, .box-header {
         width: 100%;
     }
 
-    nav {
-        display: flex;
-        align-items: center;
+}
+    .nav-li {
+        font-size: 15px;
+        padding: auto;
     }
 
     .logo {
-        width: 100px;
+        width: 60px;
         height: auto;
         display: flex;
         align-content: center;
