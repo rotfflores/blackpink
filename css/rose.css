@@ -161,6 +161,22 @@ section {
     }
 }
 
+@media screen and (max-width: 425px) {
+    .video-mobile {
+        display: block;
+    }
+
+    .video-desktop {
+        display: none;
+    }
+
+    }
+
+    .media-icons {
+        right: 15px;
+    }
+}
+
 /*desktop*/
 @media (max-width: 1024px) {
     .container {
