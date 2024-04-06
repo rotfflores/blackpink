@@ -136,6 +136,7 @@ section {
 
 /*biography*/
 .biography {
+    padding: 100px 200px;
     background-color: #f599b1;
     color: #000000;
     transition: ease 0.5s, color 0.5s, ease-out 0.5s;
@@ -149,8 +150,6 @@ section {
     letter-spacing: 5px;
     line-height: 75px;
     margin-top: 40px;
-    width: 80%;
-    margin: 0 auto;
 }
 
 .container-bio ul {
@@ -160,6 +159,10 @@ section {
 
 .container-bio li {
     padding: 5px 0;
+}
+
+.container-bio li span {
+    font-weight: 700;
 }
 
 .container-bio p {
@@ -192,7 +195,14 @@ section {
     video {
         width: auto;
     }
+
+    /*bio*/
+.biography {
+    padding: 20px 20px;
 }
+
+
+
 
 @media screen and (max-width: 425px) {
     .video-mobile {
@@ -225,4 +235,5 @@ section {
     }
 
 
+}
 }
