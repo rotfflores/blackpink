@@ -14,7 +14,7 @@ body{
 /*nav*/
 nav {
     background-color: #000000;
-    height: 65px;
+    height: auto;
     width: 100%;
     transition: ease 0.5s;
 }
@@ -30,6 +30,7 @@ nav {
 
 .img-logo {
     width: 150px;
+    padding: 10px;
 }
 
 .nav-li {
