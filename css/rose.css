@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 body{
-    background-color: #e7edff;
-    color: #000000;
+    background-color: #000000;
+    color: #f599b1;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -132,6 +132,36 @@ section {
     transform: scale(1.3);
 }
 
+
+/*biography*/
+.biography {
+    padding: 25px 200px;
+    background-color: #f599b1;
+    color: #000000;
+    transition: ease 0.5s, color 0.5s, ease-out 0.5s;
+}
+
+.container-bio h2 {
+    font-size: 2.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 75px;
+    margin-top: 40px;
+}
+
+.container-bio ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.container-bio li {
+    padding: 5px 0;
+}
+
+.container-bio p {
+    margin-bottom: 65px;
+}
 
 
 
