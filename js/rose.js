@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   );
 
   document.addEventListener("DOMContentLoaded", function() {
-    var video = document.getElementById("video-mobile");
+    var video = document.getElementById("video");
 
     // Detectar si el dispositivo es móvil
     var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
