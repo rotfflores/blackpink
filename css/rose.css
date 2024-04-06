@@ -175,7 +175,13 @@ section {
     .media-icons {
         right: 15px;
     }
-}
+
+    .text-container h1 {
+        font-size: 2.5em;
+        line-height: 50px;
+        padding: 100px 20px;
+    }
+
 
 /*desktop*/
 @media (max-width: 1024px) {
