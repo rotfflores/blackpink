@@ -137,11 +137,19 @@ section {
 /*biography*/
 .biography {
     padding: 100px 200px;
-    background-color: #f599b1;
-    color: #000000;
+    background-color: #000000;
+    color: #f599b1;
     transition: ease 0.5s, color 0.5s, ease-out 0.5s;
     font-family: "Roboto", sans-serif;
 }
+
+.bio-img {
+    mask-image: linear-gradient(#000000 70%, transparent);
+    float: right;
+    width: 300px;
+}
+
+
 
 .container-bio h2 {
     font-size: 2.5em;
@@ -163,10 +171,6 @@ section {
 
 .container-bio li span {
     font-weight: 700;
-}
-
-.container-bio p {
-    margin-bottom: 65px;
 }
 
 
