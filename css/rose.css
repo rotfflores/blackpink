@@ -141,28 +141,44 @@ section {
     color: #f599b1;
     transition: ease 0.5s, color 0.5s, ease-out 0.5s;
     font-family: "Roboto", sans-serif;
+
 }
 
-.bio-img {
-    mask-image: linear-gradient(#000000 70%, transparent);
-    float: right;
-    width: 300px;
-}
-
-
-
-.container-bio h2 {
+.bio-h2 {
     font-size: 2.5em;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 5px;
     line-height: 75px;
     margin-top: 40px;
+    text-align: center;
 }
 
-.container-bio ul {
+.bio-img {
+    mask-image: linear-gradient(#000000 70%, transparent);
+    float: right;
+    width: 300px;
+    float: right;
+}
+
+[data-animation="fade"] {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease;
+
+    --opacity: 1;
+    --transform: translateY(0);
+}
+
+.unset {
+    opacity: var(--opacity);
+    transform: var(--transform);
+}
+
+
+.bio-ul {
     list-style: none;
-    padding: 20px;
+    padding: 80px;
 }
 
 .container-bio li {

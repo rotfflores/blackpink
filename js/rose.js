@@ -25,18 +25,28 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 //scroll 
-function callback(entries){
-  entries.forEach(entry => {
-    console.log(entry);
+
+////////////////////////////////////////
+
+
+const images = document.querySelectorAll('bio-img');
+
+function triggerAnimation(entries){
+  entries.forEach (entry => {
+    const image = entry.target.querySelector('img');
+
+    image.classList.toggle('unset', entry.isIntersecting);
   });
 }
 
-const options = {
+const options ={
   root: null,
   rootMargin: '0px',
-  threshold: 0
+  threshold: 1
 };
 
-const observer = new IntersectionObserver(callback, options);
-const element = document.getElementById('video');
-observer.observe(element);
+const observe = new IntersectionObserver(triggerAnimation, options);
+
+images.forEach(image => {
+  observe.observe(image);
+});
