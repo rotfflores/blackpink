@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Rose - blackpink</title>
     <link rel="stylesheet" href="css/rose.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -20,7 +21,22 @@
     </nav>
 
     <section class="text-container">
-        <video id="video" class="video video-desktop" src="videos/jisoo.mp4" autoplay muted loop playsinline webkit-playsinline></video>
+    <video 
+        id="video" 
+        class="video video-desktop" 
+        src="videos/jisoo.mp4" 
+        autoplay 
+        muted 
+        loop
+        playsinline
+        webkit-playsinline
+        disablePictureInPicture
+        x-webkit-airplay="allow"
+        preload="auto"
+    >
+        <!-- Fallback para algunos navegadores -->
+        <source src="videos/jisoo.mp4" type="video/mp4">
+    </video>
 
 
         <div class="container">
