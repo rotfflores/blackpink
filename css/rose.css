@@ -88,30 +88,6 @@ section {
     -webkit-tap-highlight-color: transparent;
 }
 
-.video::-webkit-media-controls {
-    display: none !important;
-}
-
-.video::-webkit-media-controls-enclosure {
-    display: none !important;
-}
-
-.video::-webkit-media-controls-panel {
-    display: none !important;
-}
-
-.video::-webkit-media-controls-play-button {
-    display: none !important;
-}
-
-.video::-webkit-media-controls-start-playback-button {
-    display: none !important;
-}
-
-.video-mobile {
-    display: none;
-}
-
 .container {
     z-index: 888;
     width: 80%;
