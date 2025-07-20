@@ -15,3 +15,8 @@ const lisa = document.getElementById('lisa');
 lisa.addEventListener('click', function() {
     window.location.href = 'lisa.html';
 });
+
+const jisoo = document.getElementById('jisoo');
+jisoo.addEventListener('click', function() {
+    window.location.href = 'jisoo.html';
+});
