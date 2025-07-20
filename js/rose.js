@@ -1,36 +1,52 @@
 document.addEventListener("DOMContentLoaded", function() {
     var video = document.getElementById("video");
-    
-    // Configuración especial para iOS/Android
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Asegurar atributos necesarios
+    video.addEventListener("loadedmetadata", function() {
+      // Establecer el tiempo de inicio en el segundo 30 después de que se carguen los metadatos
+      video.currentTime = 15;
+    });
+  }
+  );
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var video = document.getElementById("video");
+
+    // Detectar si el dispositivo es móvil
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+        video.setAttribute('autoplay', '');
+        video.setAttribute('muted', '');
         video.setAttribute('playsinline', '');
-        video.setAttribute('webkit-playsinline', '');
-        video.muted = true;
-        
-        // Intentar reproducir (con manejo de errores)
-        var playPromise = video.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.catch(function(error) {
-                // Si falla, esperar interacción del usuario
-                document.addEventListener('touchstart', function handler() {
-                    video.play();
-                    document.removeEventListener('touchstart', handler);
-                }, { once: true });
-            });
-        }
     }
 
-    // Configurar tiempo inicial
     video.addEventListener("loadedmetadata", function() {
+        // Establecer el tiempo de inicio en el segundo 15 después de que se carguen los metadatos
         video.currentTime = 15;
-        video.play().catch(e => console.log("Error al reproducir:", e));
     });
-    
-    // Manejar la repetición
-    video.addEventListener('ended', function() {
-        video.currentTime = 15;
-        video.play();
-    });
+});
+
+//scroll 
+
+////////////////////////////////////////
+
+
+const images = document.querySelectorAll('bio-img');
+
+function triggerAnimation(entries){
+  entries.forEach (entry => {
+    const image = entry.target.querySelector('img');
+
+    image.classList.toggle('unset', entry.isIntersecting);
+  });
+}
+
+const options ={
+  root: null,
+  rootMargin: '0px',
+  threshold: 1
+};
+
+const observe = new IntersectionObserver(triggerAnimation, options);
+
+images.forEach(image => {
+  observe.observe(image);
 });
