@@ -1,33 +1,34 @@
 document.addEventListener("DOMContentLoaded", function() {
     var video = document.getElementById("video");
     
-    // Configuración para móviles (especialmente iOS)
+    // Configuración especial para iOS/Android
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        video.muted = true;
+        // Asegurar atributos necesarios
         video.setAttribute('playsinline', '');
-        video.setAttribute('autoplay', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.muted = true;
         
-        // Forzar la reproducción en iOS (necesario en algunas versiones)
+        // Intentar reproducir (con manejo de errores)
         var playPromise = video.play();
         
         if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                // Intentar reproducir con un gesto del usuario
-                document.body.addEventListener('touchstart', function once() {
+            playPromise.catch(function(error) {
+                // Si falla, esperar interacción del usuario
+                document.addEventListener('touchstart', function handler() {
                     video.play();
-                    document.body.removeEventListener('touchstart', once);
-                });
+                    document.removeEventListener('touchstart', handler);
+                }, { once: true });
             });
         }
     }
 
+    // Configurar tiempo inicial
     video.addEventListener("loadedmetadata", function() {
         video.currentTime = 15;
-        // Intentar reproducir nuevamente después de establecer el tiempo
         video.play().catch(e => console.log("Error al reproducir:", e));
     });
     
-    // Manejar la repetición del video
+    // Manejar la repetición
     video.addEventListener('ended', function() {
         video.currentTime = 15;
         video.play();
