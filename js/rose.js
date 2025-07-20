@@ -1,52 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
     var video = document.getElementById("video");
-    video.addEventListener("loadedmetadata", function() {
-      // Establecer el tiempo de inicio en el segundo 30 después de que se carguen los metadatos
-      video.currentTime = 15;
-    });
-  }
-  );
-
-  document.addEventListener("DOMContentLoaded", function() {
-    var video = document.getElementById("video");
-
-    // Detectar si el dispositivo es móvil
-    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-        video.setAttribute('autoplay', '');
-        video.setAttribute('muted', '');
+    
+    // Configuración para móviles (especialmente iOS)
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        video.muted = true;
         video.setAttribute('playsinline', '');
+        video.setAttribute('autoplay', '');
+        
+        // Forzar la reproducción en iOS (necesario en algunas versiones)
+        var playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                // Intentar reproducir con un gesto del usuario
+                document.body.addEventListener('touchstart', function once() {
+                    video.play();
+                    document.body.removeEventListener('touchstart', once);
+                });
+            });
+        }
     }
 
     video.addEventListener("loadedmetadata", function() {
-        // Establecer el tiempo de inicio en el segundo 15 después de que se carguen los metadatos
         video.currentTime = 15;
+        // Intentar reproducir nuevamente después de establecer el tiempo
+        video.play().catch(e => console.log("Error al reproducir:", e));
     });
-});
-
-//scroll 
-
-////////////////////////////////////////
-
-
-const images = document.querySelectorAll('bio-img');
-
-function triggerAnimation(entries){
-  entries.forEach (entry => {
-    const image = entry.target.querySelector('img');
-
-    image.classList.toggle('unset', entry.isIntersecting);
-  });
-}
-
-const options ={
-  root: null,
-  rootMargin: '0px',
-  threshold: 1
-};
-
-const observe = new IntersectionObserver(triggerAnimation, options);
-
-images.forEach(image => {
-  observe.observe(image);
+    
+    // Manejar la repetición del video
+    video.addEventListener('ended', function() {
+        video.currentTime = 15;
+        video.play();
+    });
 });
