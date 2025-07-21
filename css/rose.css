@@ -186,7 +186,30 @@ section {
     font-weight: 700;
 }
 
+/*album*/
+.album-box {
+    border-radius: 24px;
+    background-color: #f599b1;
+    color: #000000;
+    padding: 60px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
 
+.album-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-self: center;
+    justify-content: center;
+}
 
 /*mobile*/
 @media screen and (max-width: 768px) {
