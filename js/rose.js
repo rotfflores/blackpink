@@ -50,3 +50,18 @@ const observe = new IntersectionObserver(triggerAnimation, options);
 images.forEach(image => {
   observe.observe(image);
 });
+
+// Add the album cards for the discography section
+const albumCard = document.querySelector('.album-card');
+const albumInfo = document.querySelector('.album-info');
+const overlay = document.getElementById('overlay');
+
+albumCard.addEventListener('click', () => {
+  albumInfo.classList.add('open');
+  overlay.style.display = 'block';
+});
+
+overlay.addEventListener('click', () => {
+  albumInfo.classList.remove('open');
+  overlay.style.display = 'none';
+});
