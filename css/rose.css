@@ -289,6 +289,13 @@ section {
     padding: 20px 20px;
 }
 
+.almum-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
 
 
 
