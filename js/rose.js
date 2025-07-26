@@ -52,16 +52,18 @@ images.forEach(image => {
 });
 
 // Add the album cards for the discography section
-const albumCard = document.querySelector('.album-card');
-const albumInfo = document.querySelector('.album-info');
+const albumCards = document.querySelectorAll('.album-card');
+const albumInfo = document.querySelectorAll('.album-info');
 const overlay = document.getElementById('overlay');
 
-albumCard.addEventListener('click', () => {
-  albumInfo.classList.add('open');
-  overlay.style.display = 'block';
+albumCards.forEach((albumCard, index) => {
+  albumCard.addEventListener('click', () => {
+    albumInfo[index].classList.add('open');
+    overlay.style.display = 'block';
+  });
 });
 
 overlay.addEventListener('click', () => {
-  albumInfo.classList.remove('open');
+  albumInfo.forEach(info => info.classList.remove('open'));
   overlay.style.display = 'none';
 });
