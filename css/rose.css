@@ -199,6 +199,7 @@ section {
     justify-content: space-between;
     gap: 20px;
     align-items: flex-start;
+    cursor: pointer;
 }
 
 .album-card {
@@ -209,10 +210,7 @@ section {
     text-align: center;
     flex: 1 1 calc(33.333% - 20px);
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
     transition: all 0.3s ease;
-    cursor: default;
-
 }
 
 .album-card:hover {
@@ -238,6 +236,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .album-info.open {
