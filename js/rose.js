@@ -55,13 +55,26 @@ images.forEach(image => {
 const albumCards = document.querySelectorAll('.album-card');
 const albumInfo = document.querySelectorAll('.album-info');
 const overlay = document.getElementById('overlay');
+const toggles = document.querySelectorAll('.toggle-info');
+
 
 albumCards.forEach((albumCard, index) => {
   albumCard.addEventListener('click', () => {
+    albumInfo.forEach(info => info.classList.remove('open'));
+    albumInfo[index].classList.add('open'); 
+    overlay.style.display = 'block';
+  });
+});
+
+toggles.forEach((toggle, index) => {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // evita conflictos
+    albumInfo.forEach(info => info.classList.remove('open'));
     albumInfo[index].classList.add('open');
     overlay.style.display = 'block';
   });
 });
+
 
 overlay.addEventListener('click', () => {
   albumInfo.forEach(info => info.classList.remove('open'));
