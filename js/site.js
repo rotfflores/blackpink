@@ -8,7 +8,12 @@ if (video && toggle) {
   const status = document.querySelector('.video-status');
   const update = () => {
     const playing = !video.paused;
-    toggle.textContent = playing ? 'Ⅱ Pausar fondo' : '▶ Reproducir fondo';
+    const label = toggle.querySelector('.video-label');
+    if (label) label.textContent = playing ? 'Pausar fondo' : 'Reproducir fondo';
+    const path = toggle.querySelector('svg');
+    if (path) path.innerHTML = playing
+      ? '<path d="M8 5v14M16 5v14" stroke-width="3"/>'
+      : '<path d="m8 5 11 7-11 7Z" fill="currentColor" stroke="none"/>';
     toggle.setAttribute('aria-label', playing ? 'Pausar video de fondo' : 'Reproducir video de fondo');
   };
   const sync = async () => {
@@ -61,4 +66,39 @@ document.querySelectorAll('.album-player').forEach(details => {
       frame.removeAttribute('src');
     }
   });
+});
+
+// Progressive enhancement: content stays visible without JS or observer support.
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
+  const reveals = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        reveals.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.section-heading, .member-card, .album-card, .solo-art, .solo-content, .story-photo, .story-copy, .fan-banner, .next-member').forEach((element, index) => {
+    element.classList.add('reveal');
+    element.style.setProperty('--reveal-delay', `${(index % 4) * 55}ms`);
+    reveals.observe(element);
+  });
+}
+
+// Works without View Transitions API; modifier clicks and external links remain native.
+let navigating = false;
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href]');
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target || link.hasAttribute('download') || reducedMotion.matches) return;
+  const destination = new URL(link.href, location.href);
+  if (destination.origin !== location.origin || destination.pathname === location.pathname || !destination.pathname.endsWith('.html')) return;
+  if (navigating) { event.preventDefault(); return; }
+  event.preventDefault();
+  navigating = true;
+  document.body.classList.add('page-leaving');
+  window.setTimeout(() => location.assign(destination.href), 180);
+});
+window.addEventListener('pageshow', () => {
+  navigating = false;
+  document.body.classList.remove('page-leaving');
 });
